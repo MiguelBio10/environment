@@ -21,31 +21,28 @@ class AppNavbar extends Component{
             isOpen: !this.state.isOpen
         });
      }
-        render(){
-            return(
-                <div>
-                <Navbar color = "dark" dark expand = "sm" className="mb-5">
-                <Container>
-                    <NavbarBrand href="/">Favorite Anime</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle}/>
-                    <Collapse isOpen = {this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="https://github.com/MiguelBio10">
-                                    Github
-                                </NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Container>
-                    
-                </Navbar>
-            </div>
+    render(){
+        return(
+            <div>
+            <Navbar color="dark" dark expand="sm" className="mb-5">
+            <Container>
+                <NavbarBrand href="/">Favorite Anime</NavbarBrand>
+                <NavbarToggler onClick={this.toggle}/>
+                <Collapse isOpen = {this.state.isOpen} navbar>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <NavLink href="https://github.com/MiguelBio10">Github</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Container>     
+            </Navbar>
+        </div>
 
-            )
+        );
             
-        }
     }
+}
 
 
 export default AppNavbar;

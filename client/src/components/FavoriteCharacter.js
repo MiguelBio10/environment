@@ -38,6 +38,7 @@ class FavoriteCharacter extends Component {
                         {characters.map(({ id, name }) => (
                             <CSSTransition key={id} timeout={500} classNames="fade">
                                 <ListGroupItem>
+                                    
                                     <Button
                                     className="remove-btn"
                                     color="danger"

@@ -5,7 +5,9 @@ import { v4 as uuidv4 } from 'uuid'; // Importing v4 function from uuid package
 
 class FavoriteCharacter extends Component {
     state = {
+        
         characters: [
+
             { id: uuidv4(), name: 'Naruto' },
             { id: uuidv4(), name: 'Luffy' },
             { id: uuidv4(), name: 'Saitama'},
@@ -43,10 +45,13 @@ class FavoriteCharacter extends Component {
                                     onClick={() => {
                                         this.setState(state =>({
                                             characters: state.characters.filter(character =>character.id !==id)
+
                                         }));
                                     }}>
                                         x</Button>
+
                                     {name}
+
                                     </ListGroupItem>
                             </CSSTransition>
                         ))}

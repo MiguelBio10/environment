@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 import { connect } from "react-redux";
 import { addItem } from '../actions/animesActions';
-import { v4 as uuidv4 } from 'uuid';
 
 class AnimesModal extends Component {
     state = {
@@ -31,8 +30,9 @@ class AnimesModal extends Component {
 
     onSubmit = e =>{
         e.preventDefault();
+
         const newAnimes ={
-            id:uuidv4(),
+            
             name: this.state.name
         }
 

@@ -22,14 +22,14 @@ class FavoriteCharacter extends Component {
             <Container>
                 <ListGroup>
                     <TransitionGroup className="favorite-characters">
-                        {characters && characters.map(({ id, name }) => (
-                            <CSSTransition key={id} timeout={500} classNames="fade">
+                        {characters && characters.map(({ _id, name }) => (
+                            <CSSTransition key={_id} timeout={500} classNames="fade">
                                 <ListGroupItem>
                                     <Button
                                         className="remove-btn"
                                         color="danger"
                                         size="sm"
-                                        onClick={() => this.onDeleteClick(id)}
+                                        onClick={() => this.onDeleteClick(_id)}
                                     >
                                         x
                                     </Button>

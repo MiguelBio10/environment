@@ -11,19 +11,29 @@ export const getItems = () => dispatch => {
         .catch(error => console.error(error)); // Handle potential errors
 };
 
-export const deleteItem = id => {
-    return{
-        type: DELETE_ITEM,
-        payload: id
-    };
+export const addItem = Animes => dispatch =>{
+   axios
+    .post ('./api/anime', Animes)
+    .then (res => 
+        dispatch({
+        type: ADD_ITEM,
+        payload: res.data
+        })
+        )
+   
+
 };
 
-export const addItem = Animes => {
-    return{
-        type: ADD_ITEM,
-        payload: Animes
-    };
+export const deleteItem = id => dispatch => {
+ axios.delete(`/api/anime/${id}`).then(res =>
+    dispatch({
+        type:DELETE_ITEM,
+        payload: id
+    })
+    )
 };
+
+
 
 export const setItemsLoading = () =>{
     return{

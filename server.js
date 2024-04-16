@@ -1,13 +1,12 @@
 const express = require('express');
 const mongoose =require('mongoose');
-const bodyParser =require('body-parser');
 const path = require('path');
-const anime = require('./route/api/anime'); 
+
 
 const app = express ();
 
 //Bodyparser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 
 const db = require('./config/keys').mongoURI;
@@ -19,7 +18,8 @@ mongoose
     .catch(err => console.log(err));
     
 // Use Routes
-app.use('/api/anime',anime);
+app.use('/api/anime',require('./route/api/anime'));
+app.use('/api/users',require('./route/api/users'));
 
 // Serve Static assets if in Production
 if(process.env.NODE_ENV === 'production'){

@@ -21,6 +21,7 @@ mongoose
 // Use Routes
 app.use('/api/anime',require('./route/api/anime'));
 app.use('/api/users',require('./route/api/users'));
+app.use('/api/auth',require('./route/api/auth'));
 
 // Serve Static assets if in Production
 if(process.env.NODE_ENV === 'production'){

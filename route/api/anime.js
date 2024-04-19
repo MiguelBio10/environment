@@ -1,12 +1,13 @@
 const express = require ('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 // anime model
 const animes = require('../../models/animes');
 
 //@route Get api/animes
 //@desc Get All animes
-//@access Public
+//@access Private
 router.get('/', (req, res) => {
 
     animes.find()
@@ -16,15 +17,15 @@ router.get('/', (req, res) => {
 });
 //@route Post api/animes
 //@desc Post All animes
-//@access Public
-router.post('/', (req, res) => {
+//@access Private
+router.post('/', auth, (req, res) => {
     const newanimes = new animes ({
         name: req.body.name
     });
     newanimes.save().then(Animes => res.json(Animes));
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
     animes.findById(req.params.id)
         .then(Anime => {
             if (!Anime) {
